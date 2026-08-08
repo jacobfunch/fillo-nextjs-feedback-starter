@@ -4,8 +4,8 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
 export const metadata: Metadata = {
-  title: "Native in-app feedback · Fillo Next.js starter",
-  description: "A production-shaped in-app feedback card built with Next.js and Fillo.",
+  title: "Feedback form for Next.js · Fillo starter",
+  description: "A Next.js example that adds a two-question Fillo feedback form to a settings page.",
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
