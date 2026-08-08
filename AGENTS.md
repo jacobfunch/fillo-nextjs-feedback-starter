@@ -1,67 +1,71 @@
 # AGENTS.md
 
-This is a deliberately small Next.js App Router starter for a product-native
-Fillo feedback form. Keep it understandable in one sitting.
+This repository contains a small feedback form for the Next.js App Router. Keep
+the example small enough to understand in one sitting.
 
-## Goal
+## Purpose
 
-The host application owns the settings route, layout, styling, account context,
-and after-submit behavior. Fillo owns the form schema, validation, accepted
-response, versions, exports, and delivery workflow.
+The app controls the settings page, session, layout, styles and success state.
+Fillo controls the form schema, validation, responses, versions, exports and
+delivery.
 
-## Start here
+## Start
 
-1. Read `README.md` and inspect `app/FeedbackCard.tsx`.
-2. Run `npm install`, `npm run build`, and then `npm run dev`.
-3. Without a key, verify that the page renders the labeled non-submitting preview.
-4. For a Fillo task, run `npx @usefillo/cli@latest skill install` and use the
-   installed `build-with-fillo` skill.
+1. Read `README.md`.
+2. Read `app/FeedbackCard.tsx`.
+3. Run `npm install`.
+4. Run `npm run build`.
+5. Run `npm run dev`.
+6. Remove the Fillo key and check Preview mode.
+7. For Fillo work, run `npx @usefillo/cli@latest skill install`.
+8. Follow the installed `build-with-fillo` skill.
 
-## Repository map
+## Files
 
-- `app/page.tsx`: product-owned settings surface.
-- `app/FeedbackCard.tsx`: code-defined form and preview/connected states.
-- `app/styles.css`: host UI and scoped renderer styling.
-- `app/layout.tsx`: global SDK stylesheet and metadata.
+- `app/page.tsx`: settings page and product layout.
+- `app/FeedbackCard.tsx`: form schema and connected or preview state.
+- `app/styles.css`: page styles and Fillo form styles.
+- `app/layout.tsx`: global Fillo stylesheet and page metadata.
 
-## Stable contract
+## IDs to keep
 
 - Form ID: `nextjs-settings-feedback`
 - Rating field ID: `score`
 - Note field ID: `note`
 
-Once real responses exist, preserve those IDs. Labels and helper copy may change
-without changing stored answer keys.
+Keep these IDs after the first response. Fillo uses the field IDs as stored
+answer keys. You can change labels and help text.
 
-## Guardrails
+## Rules
 
-- Keep the form inside the product route; do not replace it with an iframe or a
-  separate survey page.
-- Keep the preview fallback. A clone should show the form without making a
-  network request or accepting a response.
-- Never put an `fsk_` key, identity secret, webhook secret, login token, or
+- Keep the form in the product page. Do not replace it with an iframe or another
+  survey page.
+- Keep Preview mode. It must show the form without sending a response.
+- Do not put an `fsk_` key, identity secret, webhook secret, login token or
   storage credential in browser code or committed files.
-- Use only a public `pk_` key for code-schema sync. Published form reads and
-  submissions do not use that key as response authentication.
-- Compute verified respondent hashes in server-only code.
-- Keep field conditions in the schema. Do not change schema shape per visitor.
-- Use the default accessible controls unless the task explicitly requires a
-  custom renderer. Preserve labels, errors, focus, and keyboard behavior.
-- Do not add analytics, a state library, or a second form backend to this starter.
+- Use only a public `pk_` key to sync the form schema. A published form does not
+  use this key to accept a response.
+- Create verified respondent hashes in server-only code.
+- Put field conditions in the form schema. Do not change the schema for each
+  visitor.
+- Use the default accessible controls unless the task requires a custom
+  renderer. Keep labels, errors, focus and keyboard controls accessible.
+- Do not add analytics, a state library or another form backend.
 
-## Verification
+## Checks
 
 - `npm run build` passes.
-- The no-key page shows `Preview mode` and a visible Fillo form.
-- Desktop and mobile layouts do not overflow.
-- With a configured key, the form stages or resolves successfully according to
-  workspace sync policy.
-- The required rating exposes an accessible error.
-- One authorized test submission appears in the Fillo response workspace before
-  claiming the integration is complete.
+- Preview mode shows the form and does not send a response.
+- The desktop and mobile pages do not overflow.
+- With a key, Fillo stages or loads the form according to the workspace sync
+  setting.
+- An empty rating shows an accessible error.
+- Submit one authorised test response. Find it in Fillo before you report that
+  the form works.
 
-When handing work back, state the build result and the exact remaining dashboard
-action: connect, publish, or verify a response. Never report private workspace URLs.
+When you finish, report the build result. State the next action in Fillo:
+connect the form, publish it or check the response. Do not report private
+workspace URLs.
 
 <!-- BEGIN:nextjs-agent-rules -->
 

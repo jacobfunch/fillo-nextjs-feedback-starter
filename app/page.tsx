@@ -13,7 +13,7 @@ export default function Page() {
         <p className="breadcrumb">
           Workspace <span>/</span> <strong>Billing feedback</strong>
         </p>
-        <span className="avatar" aria-label="Signed in as Jamie Diaz">
+        <span className="avatar" role="img" aria-label="Signed in as Jamie Diaz">
           JD
         </span>
       </header>
@@ -32,9 +32,11 @@ export default function Page() {
 
         <section className="product-route">
           <div className="product-copy">
-            <p className="eyebrow">Help us improve Northstar</p>
-            <h1>Something feel off?</h1>
-            <p>Send the product team the page and enough context to investigate.</p>
+            <p className="eyebrow">Billing feedback</p>
+            <h1>Tell us what went wrong.</h1>
+            <p>
+              Rate this page and describe the problem. We will use your feedback to investigate.
+            </p>
             <div className="page-context">
               <span>Current page</span>
               <code>/settings/billing</code>

@@ -10,8 +10,8 @@ export function FeedbackCard() {
     <section id="feedback" className="feedback-card" aria-labelledby="feedback-title">
       <div className="feedback-heading">
         <div>
-          <h2 id="feedback-title">Report product feedback</h2>
-          <p>Rate this page and tell us what happened.</p>
+          <h2 id="feedback-title">Tell us about this page</h2>
+          <p>Give it a rating and tell us what we should fix.</p>
         </div>
       </div>
 
@@ -19,7 +19,8 @@ export function FeedbackCard() {
         <aside className="setup" role="status">
           <strong>Preview mode</strong>
           <span>
-            Add <code>NEXT_PUBLIC_FILLO_KEY</code> to sync this form and collect a response.
+            Add <code>NEXT_PUBLIC_FILLO_KEY</code> to connect this form to Fillo. You can then
+            collect responses.
           </span>
         </aside>
       ) : null}
@@ -32,8 +33,8 @@ export function FeedbackCard() {
           settings={{ submitLabel: "Send feedback" }}
           showTitle={false}
         >
-          <Fillo.Rating id="score" label="Overall experience" max={5} required />
-          <Fillo.LongText id="note" label="What should we fix?" />
+          <Fillo.Rating id="score" label="Rate this page" max={5} required />
+          <Fillo.LongText id="note" label="What went wrong?" />
         </Fillo.Form>
       ) : (
         <Fillo.Form
@@ -42,9 +43,18 @@ export function FeedbackCard() {
           settings={{ submitLabel: "Send feedback" }}
           showTitle={false}
           renderOnly
+          renderSuccess={() => (
+            <div className="preview-success">
+              <span aria-hidden="true">✓</span>
+              <h3>Preview finished</h3>
+              <p>
+                We did not send or save your feedback. Add a publishable key to collect responses.
+              </p>
+            </div>
+          )}
         >
-          <Fillo.Rating id="score" label="Overall experience" max={5} required />
-          <Fillo.LongText id="note" label="What should we fix?" />
+          <Fillo.Rating id="score" label="Rate this page" max={5} required />
+          <Fillo.LongText id="note" label="What went wrong?" />
         </Fillo.Form>
       )}
     </section>
