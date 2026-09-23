@@ -6,7 +6,7 @@ Use this starter to add a feedback form to a Next.js App Router page. The app
 controls the page and styles. Fillo handles the form schema, validation and
 responses.
 
-[Read the setup guide](https://fillo.so/guides/nextjs-in-app-feedback-form) ·
+[Read the setup guide](https://fillo.so/guides/nextjs-in-app-feedback-form?utm_source=github&utm_medium=referral&utm_campaign=nextjs-feedback-starter) ·
 [React SDK](https://www.npmjs.com/package/@usefillo/react) ·
 [Fillo docs](https://fillo.so/docs)
 
@@ -40,10 +40,10 @@ response.
 
 ## Connect the form to Fillo
 
-1. Create or open a workspace at [fillo.so](https://fillo.so).
+1. Create or open a workspace at [fillo.so](https://fillo.so?utm_source=github&utm_medium=referral&utm_campaign=nextjs-feedback-starter).
 2. Copy `.env.example` to `.env.local`.
-3. Set `NEXT_PUBLIC_FILLO_KEY` to the workspace's public `pk_` key.
-4. Add `http://localhost:3000` to the workspace's allowed origins.
+3. Set `NEXT_PUBLIC_FILLO_KEY` to the project's public `pk_` key.
+4. Add `http://localhost:3000` to the project's allowed origins.
 5. Restart the development server and open the page. This syncs
    `nextjs-settings-feedback`.
 6. Review and publish the form in Fillo.
@@ -79,10 +79,10 @@ npx @usefillo/cli@latest login
 npx @usefillo/cli@latest skill install
 ```
 
-If you do not have a workspace, run:
+If you do not have a workspace, ask the owner for their work email, then run:
 
 ```bash
-npx @usefillo/cli@latest agent bootstrap --email you@company.com
+npx @usefillo/cli@latest agent bootstrap --email <their email>
 ```
 
 Then give the agent a specific task:
@@ -112,7 +112,13 @@ Then complete these checks:
 
 ## More help
 
-- [Next.js feedback setup guide](https://fillo.so/guides/nextjs-in-app-feedback-form)
+- [Next.js feedback setup guide](https://fillo.so/guides/nextjs-in-app-feedback-form?utm_source=github&utm_medium=referral&utm_campaign=nextjs-feedback-starter)
 - [How Fillo handles a form request](https://fillo.so/guides/native-form-request-lifecycle)
 - [Respondent identity](https://fillo.so/docs/respondents)
 - [Style the React form](https://fillo.so/docs/styling)
+
+## Continue the workflow
+
+- [Verify the first saved response](https://fillo.so/guides/agent-form-to-first-response).
+- [Use shadcn controls](https://fillo.so/guides/shadcn-feedback-form).
+- [Send feedback to Notion](https://fillo.so/guides/notion-product-feedback) or [route intake through n8n](https://fillo.so/guides/n8n-client-intake).
